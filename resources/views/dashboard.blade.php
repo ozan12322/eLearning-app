@@ -6,9 +6,13 @@
             <h2 class="text-2xl font-semibold text-gray-600">Dashboard</h2>
         </div>
     </section>
-
     <hr />
 
+    <h3 class="py-5 font-medium text-xl text-gray-500 text-center">
+        Hello {{ Auth::user()->name }}, Selamat Datang!
+    </h3>
+
+    @if(auth()->user()->hasRole('admin'))
     <section
         class="grid grid-cols-1 gap-8 px-6 pt-10 xl:grid-cols-3 2xl:grid-cols-4 md:grid-cols-2"
     >
@@ -114,4 +118,5 @@
             </div>
         </div>
     </section>
+    @endif
 </x-app-layout>

@@ -83,6 +83,8 @@
                     >master data</label
                 >
 
+                @if (auth()->user()->hasRole('admin'))
+                    
                 <button
                     type="button"
                     class="flex items-center px-3 py-2 w-full text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -167,6 +169,10 @@
 
                     <span class="mx-2 text-sm font-medium">Kelas</span>
                 </a>
+            
+                @endif
+
+                
 
                 <a
                     class="{{ request()->is('mapel') ? 'bg-gray-200 text-gray-800' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-700' }} flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg dark:text-gray-200  dark:hover:bg-gray-800 dark:hover:text-gray-200 "
