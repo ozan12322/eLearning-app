@@ -78,13 +78,13 @@
             </div>
 
             <div class="space-y-3">
+                @if (auth()->user()->hasRole('admin'))
+
                 <label
                     class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400"
                     >master data</label
                 >
 
-                @if (auth()->user()->hasRole('admin'))
-                    
                 <button
                     type="button"
                     class="flex items-center px-3 py-2 w-full text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -131,7 +131,7 @@
                     <li>
                         <a
                             class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                            href="#"
+                            href="{{ route('admin.user-guru') }}"
                         >
                             <span class="mx-2 text-sm font-medium text-center"
                                 >Guru</span
@@ -141,7 +141,7 @@
                     <li>
                         <a
                             class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                            href="#"
+                            href=""
                         >
                             <span class="mx-2 text-sm font-medium">Siswa</span>
                         </a>
@@ -169,10 +169,6 @@
 
                     <span class="mx-2 text-sm font-medium">Kelas</span>
                 </a>
-            
-                @endif
-
-                
 
                 <a
                     class="{{ request()->is('mapel') ? 'bg-gray-200 text-gray-800' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-700' }} flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg dark:text-gray-200  dark:hover:bg-gray-800 dark:hover:text-gray-200 "
@@ -195,7 +191,67 @@
 
                     <span class="mx-2 text-sm font-medium">Mapel</span>
                 </a>
+
+                @endif
             </div>
+
+            @if (auth()->user()->hasRole('guru') ||
+            auth()->user()->hasRole('siswa'))
+
+            <div class="space-y-3">
+                <label
+                    class="px-3 text-xs text-gray-500 uppercase dark:text-gray-400"
+                    >Edu</label
+                >
+
+                <a
+                    class="{{ request()->is('tugas') ? 'bg-gray-200 text-gray-800' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-700' }} flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg dark:text-gray-200  dark:hover:bg-gray-800 dark:hover:text-gray-200 "
+                    href="/tugas"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 5h6m-6 4h6M10 3v4h4V3h-4Z"
+                        />
+                    </svg>
+
+                    <span class="mx-2 text-sm font-medium">Tugas</span>
+                </a>
+
+                <a
+                    class="{{ request()->is('exam') ? 'bg-gray-200 text-gray-800' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-700' }} flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg dark:text-gray-200  dark:hover:bg-gray-800 dark:hover:text-gray-200 "
+                    href="/exam"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 3v4a1 1 0 0 1-1 1H5m4 8h6m-6-4h6m4-8v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1Z"
+                        />
+                    </svg>
+
+                    <span class="mx-2 text-sm font-medium">Exam</span>
+                </a>
+            </div>
+
+            @endif
 
             <div class="space-y-3">
                 <label
