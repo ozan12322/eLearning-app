@@ -11,7 +11,7 @@
 
     <section class="pt-16">
         <div class="relative overflow-x-auto shadow-lg sm:rounded-lg">
-            <!-- tambah guru -->
+            <!-- tambah siswa -->
             <!-- Modal toggle -->
             <button
                 data-modal-target="crud-modal"
@@ -69,7 +69,7 @@
                         <!-- Modal body -->
                         <form
                             class="p-4 md:p-5"
-                            action="{{ route('admin.tambah-guru') }}"
+                            action="{{ route('admin.tambah-siswa') }}"
                             method="POST"
                             enctype="multipart/form-data"
                         >

@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth', 'role:admin')->group(function(){
+    Route::get('/role', [UserController::class, 'role'])->name('admin.role');
     Route::get('/user-guru', [UserController::class, 'guru'])->name('admin.user-guru');
     Route::post('/tambah-guru', [UserController::class, 'tambahGuru'])->name('admin.tambah-guru');
     Route::get('/user-siswa', [UserController::class, 'siswa'])->name('admin.user-siswa');
