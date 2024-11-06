@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
+use App\Models\Mapel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,5 +29,20 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('admin.user-guru');
+    }
+
+    function siswa(){
+        $siswa = User::get();
+        return view('admin.user-siswa', compact('siswa'));
+    }
+    
+    function kelas(){
+        $kelas = Kelas::get();
+        return view('admin.kelas', compact('kelas'));
+    }
+    
+    function mapel(){
+        $mapel = Mapel::get();
+        return view('admin.mapel', compact('mapel'));
     }
 }

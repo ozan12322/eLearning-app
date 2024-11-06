@@ -3,7 +3,7 @@
         class="flex flex-col w-full px-6 pt-10 pb-5 md:justify-between md:items-center md:flex-row"
     >
         <div>
-            <h2 class="text-2xl font-semibold text-gray-600">Daftar Guru</h2>
+            <h2 class="text-2xl font-semibold text-gray-600">Daftar Kelas</h2>
         </div>
     </section>
 
@@ -11,7 +11,7 @@
 
     <section class="pt-16">
         <div class="relative overflow-x-auto shadow-lg sm:rounded-lg">
-            <!-- tambah guru -->
+            <!-- tambah Kelas -->
             <!-- Modal toggle -->
             <button
                 data-modal-target="crud-modal"
@@ -19,7 +19,7 @@
                 class="block text-white mb-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button"
             >
-                Tambah Guru
+                Tambah Kelas
             </button>
 
             <!-- Main modal -->
@@ -77,47 +77,17 @@
                             <div class="grid gap-4 mb-4 grid-cols-2">
                                 <div class="col-span-2">
                                     <label
-                                        for="name"
+                                        for="nama_kelas"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         >Name</label
                                     >
                                     <input
                                         type="text"
-                                        name="name"
-                                        id="name"
-                                        value="{{ old('name') }}"
+                                        name="nama_kelas"
+                                        id="nama_kelas"
+                                        value="{{ old('nama_kelas') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="Masukan nama..."
-                                    />
-                                </div>
-                                <div class="col-span-2">
-                                    <label
-                                        for="email"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        >Email</label
-                                    >
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        value="{{ old('email') }}"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Masukan email..."
-                                    />
-                                </div>
-                                <div class="col-span-2">
-                                    <label
-                                        for="password"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        >Password</label
-                                    >
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        value="{{ old('password') }}"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Masukan password..."
                                     />
                                 </div>
                             </div>
@@ -144,7 +114,7 @@
                 </div>
             </div>
 
-            <!-- Table Guru -->
+            <!-- Table Kelas -->
             <table
                 class="w-full text-sm text-left border rtl:text-right text-gray-500 dark:text-gray-400"
             >
@@ -152,8 +122,6 @@
                     class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
                 >
                     <tr>
-                        <th scope="col" class="px-10 py-3">Nama</th>
-                        <th scope="col" class="px-16 py-3">Email</th>
                         <th scope="col" class="px-10 py-3">Kelas</th>
                         <th scope="col" class="py-3"></th>
                         <th scope="col" class="py-3"></th>
@@ -164,13 +132,6 @@
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                     >
-                        <th
-                            scope="row"
-                            class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                        >
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-16 py-4">Silver</td>
                         <td class="px-10 py-4">Silver</td>
                         <td class="py-4">
                             <button

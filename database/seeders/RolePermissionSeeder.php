@@ -68,9 +68,6 @@ class RolePermissionSeeder extends Seeder
         $roleGuru->givePermissionTo('edit-siswa');
         $roleGuru->givePermissionTo('lihat-siswa');
 
-        $roleGuru->givePermissionTo('tambah-mapel');
-        $roleGuru->givePermissionTo('edit-mapel');
-        $roleGuru->givePermissionTo('delete-mapel');
         $roleGuru->givePermissionTo('lihat-mapel');
 
         // Create Role Siswa

@@ -3,7 +3,7 @@
         class="flex flex-col w-full px-6 pt-10 pb-5 md:justify-between md:items-center md:flex-row"
     >
         <div>
-            <h2 class="text-2xl font-semibold text-gray-600">Daftar Guru</h2>
+            <h2 class="text-2xl font-semibold text-gray-600">Daftar Mapel</h2>
         </div>
     </section>
 
@@ -11,7 +11,8 @@
 
     <section class="pt-16">
         <div class="relative overflow-x-auto shadow-lg sm:rounded-lg">
-            <!-- tambah guru -->
+            @if (auth()->user()->hasRole('admin'))
+            <!-- tambah Mapel -->
             <!-- Modal toggle -->
             <button
                 data-modal-target="crud-modal"
@@ -19,7 +20,7 @@
                 class="block text-white mb-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 type="button"
             >
-                Tambah Guru
+                Tambah Mapel
             </button>
 
             <!-- Main modal -->
@@ -41,7 +42,7 @@
                             <h3
                                 class="text-lg font-semibold text-gray-900 dark:text-white"
                             >
-                                Tambah Guru Baru
+                                Tambah Mapel Baru
                             </h3>
                             <button
                                 type="button"
@@ -77,47 +78,17 @@
                             <div class="grid gap-4 mb-4 grid-cols-2">
                                 <div class="col-span-2">
                                     <label
-                                        for="name"
+                                        for="nama_mapel"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                         >Name</label
                                     >
                                     <input
                                         type="text"
-                                        name="name"
-                                        id="name"
-                                        value="{{ old('name') }}"
+                                        name="nama_mapel"
+                                        id="nama_mapel"
+                                        value="{{ old('nama_mapel') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="Masukan nama..."
-                                    />
-                                </div>
-                                <div class="col-span-2">
-                                    <label
-                                        for="email"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        >Email</label
-                                    >
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        value="{{ old('email') }}"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Masukan email..."
-                                    />
-                                </div>
-                                <div class="col-span-2">
-                                    <label
-                                        for="password"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                        >Password</label
-                                    >
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        value="{{ old('password') }}"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Masukan password..."
                                     />
                                 </div>
                             </div>
@@ -143,8 +114,9 @@
                     </div>
                 </div>
             </div>
+            @endif
 
-            <!-- Table Guru -->
+            <!-- Table Mapel -->
             <table
                 class="w-full text-sm text-left border rtl:text-right text-gray-500 dark:text-gray-400"
             >
@@ -152,9 +124,7 @@
                     class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
                 >
                     <tr>
-                        <th scope="col" class="px-10 py-3">Nama</th>
-                        <th scope="col" class="px-16 py-3">Email</th>
-                        <th scope="col" class="px-10 py-3">Kelas</th>
+                        <th scope="col" class="px-10 py-3">Mapel</th>
                         <th scope="col" class="py-3"></th>
                         <th scope="col" class="py-3"></th>
                         <th scope="col" class="py-3"></th>
@@ -164,37 +134,36 @@
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                     >
-                        <th
-                            scope="row"
-                            class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                        >
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-16 py-4">Silver</td>
                         <td class="px-10 py-4">Silver</td>
                         <td class="py-4">
+                            @if (auth()->user()->can('lihat-mapel'))
                             <button
                                 type="button"
                                 class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
                             >
                                 Lihat
                             </button>
+                            @endif
                         </td>
                         <td class="py-4">
+                            @if (auth()->user()->can('edit-mapel'))
                             <button
                                 type="button"
                                 class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                             >
                                 Edit
                             </button>
+                            @endif
                         </td>
                         <td class="py-4">
+                            @if (auth()->user()->can('delete-mapel'))
                             <button
                                 type="button"
                                 class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                             >
                                 Hapus
                             </button>
+                            @endif
                         </td>
                     </tr>
                 </tbody>

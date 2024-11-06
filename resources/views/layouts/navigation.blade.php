@@ -141,7 +141,7 @@
                     <li>
                         <a
                             class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-                            href=""
+                            href="{{ route('admin.user-siswa') }}"
                         >
                             <span class="mx-2 text-sm font-medium">Siswa</span>
                         </a>
@@ -150,7 +150,7 @@
 
                 <a
                     class="{{ request()->is('kelas') ? 'bg-gray-200 text-gray-800' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-700' }} flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg dark:text-gray-200  dark:hover:bg-gray-800 dark:hover:text-gray-200 "
-                    href="/kelas"
+                    href="{{ route('admin.kelas') }}"
                 >
                     <svg
                         class="w-5 h-5"
@@ -172,7 +172,7 @@
 
                 <a
                     class="{{ request()->is('mapel') ? 'bg-gray-200 text-gray-800' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-700' }} flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg dark:text-gray-200  dark:hover:bg-gray-800 dark:hover:text-gray-200 "
-                    href="/mapel"
+                    href="{{ route('admin.mapel') }}"
                 >
                     <svg
                         class="w-5 h-5"
