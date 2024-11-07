@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
 use App\Models\User;
 use App\Models\Kelas;
 use App\Models\Mapel;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +20,7 @@ class UserController extends Controller
     }
 
     function guru(){
-        $guru = User::get();
+        $guru = Guru::get();
         return view('admin.user-guru', compact('guru'));
     }
 
@@ -41,7 +43,7 @@ class UserController extends Controller
     }
 
     function siswa(){
-        $siswa = User::get();
+        $siswa = Siswa::get();
         return view('admin.user-siswa', compact('siswa'));
     }
 

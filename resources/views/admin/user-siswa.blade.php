@@ -152,6 +152,7 @@
                     class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
                 >
                     <tr>
+                        <th scope="col" class="px-10 py-3">Foto</th>
                         <th scope="col" class="px-10 py-3">Nama</th>
                         <th scope="col" class="px-16 py-3">Email</th>
                         <th scope="col" class="px-10 py-3">Kelas</th>
@@ -161,6 +162,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($siswa as $siswa)
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                     >
@@ -168,10 +170,16 @@
                             scope="row"
                             class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                            Apple MacBook Pro 17"
+                            {{ $siswa->foto_siswa }}
                         </th>
-                        <td class="px-16 py-4">Silver</td>
-                        <td class="px-10 py-4">Silver</td>
+                        <th
+                            scope="row"
+                            class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        >
+                            {{ $siswa->nama_siswa }}
+                        </th>
+                        <td class="px-16 py-4">{{ $siswa->email_siswa }}</td>
+                        <td class="px-10 py-4">{{ $siswa->kelas_siswa }}</td>
                         <td class="py-4">
                             <button
                                 type="button"
@@ -197,6 +205,7 @@
                             </button>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

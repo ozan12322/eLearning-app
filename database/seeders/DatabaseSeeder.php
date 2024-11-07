@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Guru;
+use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;

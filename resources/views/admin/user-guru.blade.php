@@ -152,6 +152,7 @@
                     class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400"
                 >
                     <tr>
+                        <th scope="col" class="px-10 py-3">Foto</th>
                         <th scope="col" class="px-10 py-3">Nama</th>
                         <th scope="col" class="px-16 py-3">Email</th>
                         <th scope="col" class="px-10 py-3">Kelas</th>
@@ -169,10 +170,16 @@
                             scope="row"
                             class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                            {{ $guru->name }}
+                            {{ $guru->foto_guru }}
                         </th>
-                        <td class="px-16 py-4">{{ $guru->email }}</td>
-                        <td class="px-10 py-4"></td>
+                        <th
+                            scope="row"
+                            class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        >
+                            {{ $guru->nama_guru }}
+                        </th>
+                        <td class="px-16 py-4">{{ $guru->email_guru }}</td>
+                        <td class="px-10 py-4">{{ $guru->kelas_guru }}</td>
                         <td class="py-4">
                             <div
                                 x-data="{ isOpen: false}"
