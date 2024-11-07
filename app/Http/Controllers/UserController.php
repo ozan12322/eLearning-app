@@ -19,12 +19,7 @@ class UserController extends Controller
         return view('admin.role', compact('role'));
     }
 
-    function guru(){
-        $guru = Guru::get();
-        return view('admin.user-guru', compact('guru'));
-    }
-
-    function tambahGuru(Request $request){
+    function tambahUserGuru(Request $request){
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
