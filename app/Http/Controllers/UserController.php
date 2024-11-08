@@ -37,12 +37,7 @@ class UserController extends Controller
         return redirect()->route('admin.user-guru');
     }
 
-    function siswa(){
-        $siswa = Siswa::get();
-        return view('admin.user-siswa', compact('siswa'));
-    }
-
-    function tambahSiswa(Request $request){
+    function tambahUserSiswa(Request $request){
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -57,7 +52,7 @@ class UserController extends Controller
 
         $siswa->assignRole('siswa');
 
-        return redirect()->route('admin.user-guru');
+        return redirect()->route('admin.user-siswa');
     }
     
     function kelas(){
