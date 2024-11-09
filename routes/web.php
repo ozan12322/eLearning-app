@@ -4,9 +4,11 @@ use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MapelController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -16,6 +18,7 @@ Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware([
 
 Route::middleware('auth', 'role:admin')->group(function(){
     Route::get('/role', [UserController::class, 'role'])->name('admin.role');
+
     Route::get('/user-guru', [GuruController::class, 'guru'])->name('admin.user-guru');
     Route::post('/tambah-data-guru', [GuruController::class, 'tambahDataGuru'])->name('admin.tambah-data-guru');
     Route::get('/edit-guru{id}', [GuruController::class, 'editGuru'])->name('admin.edit-guru');
@@ -31,8 +34,18 @@ Route::middleware('auth', 'role:admin')->group(function(){
     Route::delete('/delete-siswa{id}', [SiswaController::class, 'deleteSiswa'])->name('admin.delete-siswa');
 
     Route::post('/tambah-user-siswa', [UserController::class, 'tambahUserSiswa'])->name('admin.tambah-user-siswa');
-    Route::get('/kelas', [UserController::class, 'kelas'])->name('admin.kelas');
-    Route::get('/mapel', [UserController::class, 'mapel'])->name('admin.mapel');
+
+    Route::get('/kelas', [KelasController::class, 'kelas'])->name('admin.kelas');
+    Route::post('/tambah-kelas', [KelasController::class, 'tambahKelas'])->name('admin.tambah-kelas');
+    Route::get('/edit-kelas{id}', [KelasController::class, 'editKelas'])->name('admin.edit-kelas');
+    Route::put('/update-kelas{id}', [KelasController::class, 'updateKelas'])->name('admin.update-kelas');
+    Route::delete('/delete-kelas{id}', [KelasController::class, 'deleteKelas'])->name('admin.delete-kelas');
+
+    Route::get('/mapel', [MapelController::class, 'mapel'])->name('admin.mapel');
+    Route::post('/tambah-mapel', [MapelController::class, 'tambahMapel'])->name('admin.tambah-mapel');
+    Route::get('/edit-mapel{id}', [MapelController::class, 'editMapel'])->name('admin.edit-mapel');
+    Route::put('/update-mapel{id}', [MapelController::class, 'updateMapel'])->name('admin.update-mapel');
+    Route::delete('/delete-mapel{id}', [MapelController::class, 'deleteMapel'])->name('admin.delete-mapel');
 });
 
 

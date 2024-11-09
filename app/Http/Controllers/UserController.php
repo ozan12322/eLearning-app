@@ -55,13 +55,4 @@ class UserController extends Controller
         return redirect()->route('admin.user-siswa');
     }
     
-    function kelas(){
-        $kelas = Kelas::get();
-        return view('admin.kelas', compact('kelas'));
-    }
-    
-    function mapel(){
-        $mapel = Mapel::get();
-        return view('admin.mapel', compact('mapel'));
-    }
 }

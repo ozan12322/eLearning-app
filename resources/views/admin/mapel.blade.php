@@ -70,7 +70,7 @@
                         <!-- Modal body -->
                         <form
                             class="p-4 md:p-5"
-                            action="{{ route('admin.tambah-guru') }}"
+                            action="{{ route('admin.tambah-mapel') }}"
                             method="POST"
                             enctype="multipart/form-data"
                         >
@@ -87,6 +87,21 @@
                                         name="nama_mapel"
                                         id="nama_mapel"
                                         value="{{ old('nama_mapel') }}"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder="Masukan nama..."
+                                    />
+                                </div>
+                                <div class="col-span-2">
+                                    <label
+                                        for="slug"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                        >Slug</label
+                                    >
+                                    <input
+                                        type="text"
+                                        name="slug"
+                                        id="slug"
+                                        value="{{ old('slug') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder="Masukan nama..."
                                     />
@@ -127,32 +142,22 @@
                         <th scope="col" class="px-10 py-3">Mapel</th>
                         <th scope="col" class="py-3"></th>
                         <th scope="col" class="py-3"></th>
-                        <th scope="col" class="py-3"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($mapel as $mapel)
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
                     >
-                        <td class="px-10 py-4">Silver</td>
-                        <td class="py-4">
-                            @if (auth()->user()->can('lihat-mapel'))
-                            <button
-                                type="button"
-                                class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-                            >
-                                Lihat
-                            </button>
-                            @endif
-                        </td>
+                        <td class="px-10 py-4">{{ $mapel->nama_mapel }}</td>
                         <td class="py-4">
                             @if (auth()->user()->can('edit-mapel'))
-                            <button
-                                type="button"
+                            <a
+                                href="{{ route('admin.edit-mapel', $mapel->id) }}"
                                 class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                             >
                                 Edit
-                            </button>
+                            </a>
                             @endif
                         </td>
                         <td class="py-4">
@@ -166,6 +171,7 @@
                             @endif
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
