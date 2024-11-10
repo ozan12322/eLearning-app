@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_guru');
             $table->string('email_guru');
-            $table->string('kelas_guru');
             $table->string('foto_guru')->nullable();
+            $table->foreignId('kelas_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
