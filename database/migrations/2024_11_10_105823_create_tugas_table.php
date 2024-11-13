@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_tugas');
             $table->string('deskripsi_tugas');
-            $table->text('jawaban_tugas');
+            $table->text('jawaban_tugas')->nullable();
             $table->foreignId('mapels_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

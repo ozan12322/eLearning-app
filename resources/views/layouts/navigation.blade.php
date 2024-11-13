@@ -228,7 +228,7 @@
 
                 <a
                     class="{{ request()->is('tugas') ? 'bg-gray-200 text-gray-800' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-700' }} flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg dark:text-gray-200  dark:hover:bg-gray-800 dark:hover:text-gray-200 "
-                    href="/tugas"
+                    href="{{ route('edu.tugas') }}"
                 >
                     <svg
                         class="w-5 h-5"

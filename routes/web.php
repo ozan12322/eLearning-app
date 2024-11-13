@@ -2,13 +2,15 @@
 
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\TugasController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MapelController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -46,6 +48,16 @@ Route::middleware('auth', 'role:admin')->group(function(){
     Route::get('/edit-mapel{id}', [MapelController::class, 'editMapel'])->name('admin.edit-mapel');
     Route::put('/update-mapel{id}', [MapelController::class, 'updateMapel'])->name('admin.update-mapel');
     Route::delete('/delete-mapel{id}', [MapelController::class, 'deleteMapel'])->name('admin.delete-mapel');
+});
+
+Route::middleware('auth', 'role:guru|siswa')->group(function(){
+    Route::get('/tugas', [TugasController::class, 'tugas'])->name('edu.tugas');
+
+    Route::get('/exam', [ExamController::class, 'exam'])->name('edu.exam');
+});
+
+Route::middleware('auth', 'role:guru')->group(function(){
+    Route::post('/tambah-tugas', [TugasController::class. 'tambahTugas'])->name('edu.tambah-tugas');
 });
 
 
